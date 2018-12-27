@@ -2,6 +2,7 @@
 #include <vector>
 
 #include "Board.h"
+#include "Human.h"
 #include "Bot.h"
 #include "BotType1.h"
 #include "BotType2.h"
@@ -10,6 +11,7 @@ using namespace std;
 
 void playQuixo()
 {
+    char dummy;
     Board playingBoard;
     playingBoard.print();
 
@@ -20,11 +22,15 @@ void playQuixo()
         cout<<"--------------------------------"<<endl;
         cout<<"YOUR TURN!"<<endl;
         cout<<"--------------------------------"<<endl;
-        playingBoard.readAndPickCell('X');
 
+        //Human me(playingBoard, 'X', 'O');
+        //playingBoard = me.playMove();
+        //playingBoard.print();
+
+        BotType1 ai1(playingBoard, 'X', 'O');
+        playingBoard = ai1.playMove();
         playingBoard.print();
-        playingBoard.readAndPutBack('X');
-        playingBoard.print();
+        //cin>>dummy;
 
         currentStatus = playingBoard.terminalTest();
         if(currentStatus != 'N') {
@@ -37,7 +43,7 @@ void playQuixo()
         BotType2 ai(playingBoard, 'O', 'X');
         playingBoard = ai.playMove();
         playingBoard.print();
-
+        //cin>>dummy;
     }
 
     if(currentStatus == 'X')

@@ -7,17 +7,21 @@
 class Human : public Player
 {
     public:
-        Human(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol);
+        Human(Board board, char botPlayingSymbol, char opponentPlayingSymbol);
         virtual ~Human();
 
         Board playMove();
+        int readUserInputOfCellCoordinates();
 
     protected:
 
     private:
-        Board startingBoard;
+        Board board;
         char humanPlayingSymbol;
         char opponentPlayingSymbol;
+
+        void pickCell();
+        void putBackPiece();
 };
 
 #endif // HUMAN_H

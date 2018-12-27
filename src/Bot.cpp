@@ -1,6 +1,5 @@
 #include <algorithm>
-#include <iostream>
-using namespace std;
+
 #include "Bot.h"
 
 Bot::Bot(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol) :
@@ -24,7 +23,8 @@ Board Bot::minMaxDecision()
     int alpha = MIN_INF;
     int beta = PLUS_INF;
 
-    for(auto it = Board::pickableCells.begin(); it != Board::pickableCells.end(); ++it)
+    std::vector<int> pickOrder = Board::generateRandomPickOrder();
+    for(auto it = pickOrder.begin(); it != pickOrder.end(); ++it)
     {
         char pickableCellValue = startingBoard.cellValue(*it);
         if(pickableCellValue == ' ' || pickableCellValue == botPlayingSymbol)
@@ -76,7 +76,8 @@ int Bot::minValue(const Board& board, int alpha, int beta, int depth)
     int v = PLUS_INF;
     Board boardAfterPick, boardAfterPut;
 
-    for(auto it = Board::pickableCells.begin(); it != Board::pickableCells.end(); ++it)
+    std::vector<int> pickOrder = Board::generateRandomPickOrder();
+    for(auto it = pickOrder.begin(); it != pickOrder.end(); ++it)
     {
         char pickableCellValue = board.cellValue(*it);
         if(pickableCellValue == ' ' || pickableCellValue == opponentPlayingSymbol)
@@ -122,7 +123,8 @@ int Bot::maxValue(const Board& board, int alpha, int beta, int depth)
     int v = MIN_INF;
     Board boardAfterPick, boardAfterPut;
 
-    for(auto it = Board::pickableCells.begin(); it != Board::pickableCells.end(); ++it)
+    std::vector<int> pickOrder = Board::generateRandomPickOrder();
+    for(auto it = pickOrder.begin(); it != pickOrder.end(); ++it)
     {
         char pickableCellValue = board.cellValue(*it);
         if(pickableCellValue == ' ' || pickableCellValue == botPlayingSymbol)

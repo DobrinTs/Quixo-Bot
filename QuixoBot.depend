@@ -1,24 +1,25 @@
 # depslib dependency file v1.0
-1545908217 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/main.cpp
+1545911003 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/main.cpp
 	<iostream>
 	<vector>
 	"Board.h"
+	"Human.h"
 	"Bot.h"
 	"BotType1.h"
 	"BotType2.h"
 
-1545908366 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Board.h
+1545910471 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Board.h
 	<vector>
 	<set>
 
-1545900431 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Board.cpp
-	"Board.h"
+1545910609 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Board.cpp
 	<vector>
 	<iostream>
-
-1545908198 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Bot.cpp
 	<algorithm>
-	<iostream>
+	"Board.h"
+
+1545911212 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Bot.cpp
+	<algorithm>
 	"Bot.h"
 
 1545908143 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Bot.h
@@ -43,4 +44,11 @@
 
 1545908016 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Player.cpp
 	"Player.h"
+
+1545909194 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Human.cpp
+	<iostream>
+	"Human.h"
+
+1545909143 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Human.h
+	<Player.h>
 

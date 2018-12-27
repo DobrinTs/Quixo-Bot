@@ -1,6 +1,8 @@
-#include "Board.h"
 #include<vector>
 #include<iostream>
+#include <algorithm>
+
+#include "Board.h"
 
 Board::Board()
 {
@@ -28,23 +30,6 @@ void Board::print() const
     std::cout<<std::endl;
 }
 
-int Board::readUserInputOfCellCoordinates()
-{
-    int cellNumber;
-    int row, col;
-
-    std::cout<<std::endl<<"Enter cell coordinates: ";
-    std::cin>>row>>col;
-    while(row<1 || row>5 || col<0 || col>5)
-    {
-        std::cout<<std::endl<<"Coordinates out of range! Enter new coordinates: ";
-        std::cin>>row>>col;
-    }
-    cellNumber = 5*(row -1) + (col - 1);
-
-    return cellNumber;
-}
-
 char Board::cellValue(int cellNumber) const
 {
     return board[cellNumber];
@@ -57,19 +42,11 @@ bool Board::isCellPickable(int cellNumber)
     return pickableCells.count(cellNumber);
 }
 
-void Board::readAndPickCell(char playingSymbol)
-{
-    int cellNumber = readUserInputOfCellCoordinates();
+std::vector<int> Board::generateRandomPickOrder() {
+    std::vector<int> order(pickableCells.begin(), pickableCells.end());
+    std::random_shuffle ( order.begin(), order.end() );
 
-    while(!( Board::isCellPickable(cellNumber) &&
-             (cellValue(cellNumber)==' ' || cellValue(cellNumber) == playingSymbol)))
-    {
-        std::cout<<"Incorrect cell! Please enter a new one!"<<std::endl;
-        cellNumber = readUserInputOfCellCoordinates();
-
-    }
-
-    pickCell(cellNumber);
+    return order;
 }
 
 void Board::pickCell(int cellNumber) {
@@ -88,25 +65,6 @@ void Board::pickCell(int cellNumber) {
     validCellsToPutBack.insert(rightmostOfRowCellNumber);
 
     validCellsToPutBack.erase(cellNumber);
-}
-
-void Board::readAndPutBack(char pieceSymbol) {
-    int x, y, cellNumber;
-    std::cout<<"Valid moves to play: "<<std::endl;
-    for(auto it = validCellsToPutBack.begin(); it != validCellsToPutBack.end(); ++it)
-    {
-        y = *it % 5 + 1;
-        x = *it / 5 + 1;
-        std::cout<<x<<" "<<y<<" "<<std::endl;
-    }
-    cellNumber = readUserInputOfCellCoordinates();
-    while(!validCellsToPutBack.count(cellNumber))
-    {
-        std::cout<<"Not a playable move!"<<std::endl;
-        cellNumber = readUserInputOfCellCoordinates();
-    }
-
-    putPieceBack(pieceSymbol, cellNumber);
 }
 
 void Board::putPieceBack(char pieceSymbol, int putBackCell)

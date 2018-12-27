@@ -12,15 +12,14 @@ class Board
 
         void print() const;
         char cellValue(int cellNumber) const;
-        int readUserInputOfCellCoordinates();
-        static bool isCellPickable(int cellNumber);
-        void readAndPickCell(char playerSymbol);
         void pickCell(int cellNumber);
-        void readAndPutBack(char pieceSymbol);
         void putPieceBack(char pieceSymbol, int cellNumber);
 
         char terminalTest() const;
         bool checkSequence(int startCell, int endCell, int step) const;
+
+        static std::vector<int> generateRandomPickOrder();
+        static bool isCellPickable(int cellNumber);
 
     protected:
 
@@ -33,6 +32,7 @@ class Board
         std::set<int> validCellsToPutBack;
 
         friend class Bot;
+        friend class Human;
 };
 
 #endif // BOARD_H

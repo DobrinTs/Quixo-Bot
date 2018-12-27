@@ -13,6 +13,8 @@ class BotType2 : public Bot
     protected:
 
     private:
+        int eval(const Board& board);
+
 };
 
 #endif // BOTTYPE2_H

@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1545903113 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/main.cpp
+1545904109 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/main.cpp
 	<iostream>
 	<vector>
 	"Board.h"
 	"Bot.h"
 	"BotType1.h"
+	"BotType2.h"
 
 1545902804 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Board.h
 	<vector>
@@ -29,4 +30,10 @@
 
 1545903183 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotType1.cpp
 	"BotType1.h"
+
+1545904094 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotType2.cpp
+	"BotType2.h"
+
+1545903402 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/BotType2.h
+	<Bot.h>
 

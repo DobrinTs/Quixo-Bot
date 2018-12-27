@@ -7,7 +7,7 @@
 class Human : public Player
 {
     public:
-        Human(Board board, char botPlayingSymbol, char opponentPlayingSymbol);
+        Human(Board board, char humanPlayingSymbol, char opponentPlayingSymbol);
         virtual ~Human();
 
         Board playMove();

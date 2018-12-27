@@ -11,8 +11,8 @@ BotMinMax::BotMinMax(Board startingBoard, char botPlayingSymbol, char opponentPl
 BotMinMax::~BotMinMax()
 {}
 
-int BotMinMax::MIN_INF = -1000;
-int BotMinMax::PLUS_INF = 1000;
+int BotMinMax::MIN_INF = -10000;
+int BotMinMax::PLUS_INF = 10000;
 
 Board BotMinMax::minMaxDecision()
 {
@@ -61,11 +61,11 @@ int BotMinMax::minValue(const Board& board, int alpha, int beta, int depth)
     char isTerminalResult = board.terminalTest();
     if(isTerminalResult == botPlayingSymbol)
     {
-        return 120-depth;
+        return 1200 - depth;
     }
     else if(isTerminalResult == opponentPlayingSymbol)
     {
-        return depth - 120;
+        return depth - 1200;
     }
 
     if(depth == MAXIMUM_DEPTH)
@@ -108,11 +108,11 @@ int BotMinMax::maxValue(const Board& board, int alpha, int beta, int depth)
     char isTerminalResult = board.terminalTest();
     if(isTerminalResult == botPlayingSymbol)
     {
-        return 120-depth;
+        return 1200 - depth;
     }
     else if(isTerminalResult == opponentPlayingSymbol)
     {
-        return depth - 120;
+        return depth - 1200;
     }
 
     if(depth == MAXIMUM_DEPTH)

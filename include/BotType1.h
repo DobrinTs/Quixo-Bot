@@ -11,11 +11,9 @@ class BotType1 : public virtual BotMinMax
         virtual ~BotType1();
 
     protected:
-
+        int eval(const Board& board);
     private:
         static std::vector<int> cellWorth;
-        int eval(const Board& board);
-
 };
 
 #endif // BOTTYPE1_H

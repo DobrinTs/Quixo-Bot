@@ -11,9 +11,9 @@ class BotType2 : public virtual BotMinMax
         virtual ~BotType2();
 
     protected:
+        int eval(const Board& board);
 
     private:
-        int eval(const Board& board);
         int checkSymbolAndChangeGoodness(char cellValue, int& boardGoodness, int addedGoodness);
         void checkForThreesAndFours(const Board& board, int& boardGoodness, int start, int end, int step);
 };

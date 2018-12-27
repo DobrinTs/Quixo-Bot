@@ -20,6 +20,7 @@ class Board
         void putPieceBack(char pieceSymbol, int cellNumber);
 
         char terminalTest() const;
+        bool checkSequence(int startCell, int endCell, int step) const;
 
     protected:
 
@@ -31,7 +32,6 @@ class Board
         int pickedCell;
         std::set<int> validCellsToPutBack;
 
-        bool checkSequence(int startCell, int endCell, int step) const;
         friend class Bot;
 };
 

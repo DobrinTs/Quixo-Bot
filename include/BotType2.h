@@ -14,7 +14,8 @@ class BotType2 : public Bot
 
     private:
         int eval(const Board& board);
-
+        int checkSymbolAndChangeGoodness(char cellValue, int& boardGoodness, int addedGoodness);
+        void checkForThreesAndFours(const Board& board, int& boardGoodness, int start, int end, int step);
 };
 
 #endif // BOTTYPE2_H

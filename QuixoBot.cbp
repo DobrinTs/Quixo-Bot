@@ -36,9 +36,13 @@
 		</Compiler>
 		<Unit filename="include/Board.h" />
 		<Unit filename="include/Bot.h" />
+		<Unit filename="include/BotType1.h" />
+		<Unit filename="include/BotType2.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Board.cpp" />
 		<Unit filename="src/Bot.cpp" />
+		<Unit filename="src/BotType1.cpp" />
+		<Unit filename="src/BotType2.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

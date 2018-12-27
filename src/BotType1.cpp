@@ -1,7 +1,7 @@
 #include "BotType1.h"
 
 BotType1::BotType1(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol)
-    : Bot(startingBoard, botPlayingSymbol, opponentPlayingSymbol)
+    : BotMinMax(startingBoard, botPlayingSymbol, opponentPlayingSymbol)
 {}
 
 BotType1::~BotType1()

@@ -1,20 +1,20 @@
 #include <algorithm>
 
-#include "Bot.h"
+#include "BotMinMax.h"
 
-Bot::Bot(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol) :
+BotMinMax::BotMinMax(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol) :
     botPlayingSymbol(botPlayingSymbol), opponentPlayingSymbol(opponentPlayingSymbol)
 {
     this->startingBoard = startingBoard;
 }
 
-Bot::~Bot()
+BotMinMax::~BotMinMax()
 {}
 
-int Bot::MIN_INF = -1000;
-int Bot::PLUS_INF = 1000;
+int BotMinMax::MIN_INF = -1000;
+int BotMinMax::PLUS_INF = 1000;
 
-Board Bot::minMaxDecision()
+Board BotMinMax::minMaxDecision()
 {
     int v = MIN_INF;
     Board boardAfterPick, boardAfterPut;
@@ -54,9 +54,9 @@ Board Bot::minMaxDecision()
     return boardAfterBotPlayed;
 }
 
-int Bot::MAXIMUM_DEPTH = 5;
+int BotMinMax::MAXIMUM_DEPTH = 5;
 
-int Bot::minValue(const Board& board, int alpha, int beta, int depth)
+int BotMinMax::minValue(const Board& board, int alpha, int beta, int depth)
 {
     char isTerminalResult = board.terminalTest();
     if(isTerminalResult == botPlayingSymbol)
@@ -103,7 +103,7 @@ int Bot::minValue(const Board& board, int alpha, int beta, int depth)
     return v;
 }
 
-int Bot::maxValue(const Board& board, int alpha, int beta, int depth)
+int BotMinMax::maxValue(const Board& board, int alpha, int beta, int depth)
 {
     char isTerminalResult = board.terminalTest();
     if(isTerminalResult == botPlayingSymbol)
@@ -147,6 +147,6 @@ int Bot::maxValue(const Board& board, int alpha, int beta, int depth)
     return v;
 }
 
-Board Bot::playMove() {
+Board BotMinMax::playMove() {
     return minMaxDecision();
 }

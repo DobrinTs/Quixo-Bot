@@ -31,8 +31,9 @@ class Board
         int pickedCell;
         std::set<int> validCellsToPutBack;
 
-        friend class Bot;
+        friend class BotMinMax;
         friend class Human;
+        friend class BotHillClimb;
 };
 
 #endif // BOARD_H

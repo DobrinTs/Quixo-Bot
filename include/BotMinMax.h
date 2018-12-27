@@ -5,15 +5,12 @@
 #include "Board.h"
 #include "Player.h"
 
-class Bot : public Player
+class BotMinMax : public Player
 {
     public:
-        Bot(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol);
-        virtual ~Bot();
+        BotMinMax(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol);
+        virtual ~BotMinMax();
 
-        int maxValue(const Board& board, int alpha, int beta, int depth);
-        int minValue(const Board& board, int alpha, int beta, int depth);
-        Board minMaxDecision();
         Board playMove();
 
     protected:
@@ -25,6 +22,9 @@ class Bot : public Player
         char botPlayingSymbol;
         char opponentPlayingSymbol;
 
+        Board minMaxDecision();
+        int maxValue(const Board& board, int alpha, int beta, int depth);
+        int minValue(const Board& board, int alpha, int beta, int depth);
         virtual int eval(const Board& board) = 0;
     private:
 };

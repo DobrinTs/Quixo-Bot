@@ -1,10 +1,10 @@
 #ifndef BOTTYPE2_H
 #define BOTTYPE2_H
 
-#include <Bot.h>
+#include <BotMinMax.h>
 
 
-class BotType2 : public Bot
+class BotType2 : public virtual BotMinMax
 {
     public:
         BotType2(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol);

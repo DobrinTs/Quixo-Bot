@@ -109,23 +109,24 @@ void Board::readAndPutBack(char pieceSymbol) {
     putPieceBack(pieceSymbol, cellNumber);
 }
 
-void Board::putPieceBack(char pieceSymbol, int cellNumber)
+void Board::putPieceBack(char pieceSymbol, int putBackCell)
 {
     int step;
 
-    if(cellNumber%5 == pickedCell%5)
+    if(putBackCell%5 == pickedCell%5)
     {
-        step = cellNumber > pickedCell ? 5 : -5;
+        step = putBackCell > pickedCell ? 5 : -5;
     }
     else
     {
-        step = cellNumber > pickedCell ? 1 : -1;
+        step = putBackCell > pickedCell ? 1 : -1;
     }
-    for(int i = pickedCell; i != cellNumber; i+=step)
+
+    for(int i = pickedCell; i != putBackCell; i+=step)
     {
         board[i] = board[i+step];
     }
-    board[cellNumber] = pieceSymbol;
+    board[putBackCell] = pieceSymbol;
 }
 
 bool Board::checkSequence(int startCell, int endCell, int step) const {

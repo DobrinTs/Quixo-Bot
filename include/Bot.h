@@ -7,7 +7,7 @@
 class Bot
 {
     public:
-        Bot(Board board, char botPlayingSymbol, char playerPlayingSymbol);
+        Bot(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol);
         virtual ~Bot();
 
         int maxValue(const Board& board, int alpha, int beta, int depth);
@@ -22,9 +22,9 @@ class Bot
         static int MAXIMUM_DEPTH;
         static std::vector<int> cellWorth;
 
-        Board currentBoard;
+        Board startingBoard;
         char botPlayingSymbol;
-        char playerPlayingSymbol;
+        char opponentPlayingSymbol;
 
         int eval(const Board& board);
 };

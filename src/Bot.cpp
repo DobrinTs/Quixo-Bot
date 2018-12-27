@@ -3,10 +3,10 @@
 using namespace std;
 #include "Bot.h"
 
-Bot::Bot(Board board, char botPlayingSymbol, char playerPlayingSymbol) :
-    botPlayingSymbol(botPlayingSymbol), playerPlayingSymbol(playerPlayingSymbol)
+Bot::Bot(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol) :
+    botPlayingSymbol(botPlayingSymbol), opponentPlayingSymbol(opponentPlayingSymbol)
 {
-    currentBoard = board;
+    this->startingBoard = startingBoard;
 }
 
 Bot::~Bot()
@@ -26,16 +26,16 @@ Board Bot::minMaxDecision()
 
     for(auto it = Board::pickableCells.begin(); it != Board::pickableCells.end(); ++it)
     {
-        char pickableCellValue = currentBoard.cellValue(*it);
+        char pickableCellValue = startingBoard.cellValue(*it);
         if(pickableCellValue == ' ' || pickableCellValue == botPlayingSymbol)
         {
-            boardAfterPick=currentBoard;
+            boardAfterPick=startingBoard;
             boardAfterPick.pickCell(*it);
-            for(auto putBack = boardAfterPick.validCellsToPutBack.begin();
-                    putBack != boardAfterPick.validCellsToPutBack.end(); ++putBack)
+            for(auto putBackCell = boardAfterPick.validCellsToPutBack.begin();
+                    putBackCell != boardAfterPick.validCellsToPutBack.end(); ++putBackCell)
             {
                 boardAfterPut = boardAfterPick;
-                boardAfterPut.putPieceBack(botPlayingSymbol, *putBack);
+                boardAfterPut.putPieceBack(botPlayingSymbol, *putBackCell);
 
                 int minResult = minValue(boardAfterPut, alpha, beta, 1);
 
@@ -50,6 +50,7 @@ Board Bot::minMaxDecision()
         }
 
     }
+
     return boardAfterBotPlayed;
 }
 std::vector<int> Bot::cellWorth = {2, 3, 3, 3, 2,
@@ -69,7 +70,7 @@ int Bot::eval(const Board& board)
         {
             boardGoodness += cellWorth[i];
         }
-        else if(cellValue == playerPlayingSymbol)
+        else if(cellValue == opponentPlayingSymbol)
         {
             boardGoodness -= cellWorth[i];
         }
@@ -81,16 +82,12 @@ int Bot::MAXIMUM_DEPTH = 5;
 
 int Bot::minValue(const Board& board, int alpha, int beta, int depth)
 {
-    /*cout<<"--------------------------"<<endl;
-    cout<<"MIN VALUE BOARD:"<<endl;
-    board.print();
-    cout<<"--------------------------"<<endl;*/
     char isTerminalResult = board.terminalTest();
     if(isTerminalResult == botPlayingSymbol)
     {
         return 120-depth;
     }
-    else if(isTerminalResult == playerPlayingSymbol)
+    else if(isTerminalResult == opponentPlayingSymbol)
     {
         return depth - 120;
     }
@@ -106,15 +103,15 @@ int Bot::minValue(const Board& board, int alpha, int beta, int depth)
     for(auto it = Board::pickableCells.begin(); it != Board::pickableCells.end(); ++it)
     {
         char pickableCellValue = board.cellValue(*it);
-        if(pickableCellValue == ' ' || pickableCellValue == playerPlayingSymbol)
+        if(pickableCellValue == ' ' || pickableCellValue == opponentPlayingSymbol)
         {
             boardAfterPick=board;
             boardAfterPick.pickCell(*it);
-            for(auto putBack = boardAfterPick.validCellsToPutBack.begin();
-                    putBack != boardAfterPick.validCellsToPutBack.end(); ++putBack)
+            for(auto putBackCell = boardAfterPick.validCellsToPutBack.begin();
+                    putBackCell != boardAfterPick.validCellsToPutBack.end(); ++putBackCell)
             {
                 boardAfterPut = boardAfterPick;
-                boardAfterPut.putPieceBack(playerPlayingSymbol, *putBack);
+                boardAfterPut.putPieceBack(opponentPlayingSymbol, *putBackCell);
 
                 v=std::min(v, maxValue(boardAfterPut, alpha, beta, depth+1));
                 if(v <= alpha)
@@ -131,16 +128,12 @@ int Bot::minValue(const Board& board, int alpha, int beta, int depth)
 
 int Bot::maxValue(const Board& board, int alpha, int beta, int depth)
 {
-    /*cout<<"--------------------------------"<<endl;
-    cout<<"MAX VALUE BOARD:"<<endl;
-    board.print();
-    cout<<"--------------------------------"<<endl;*/
     char isTerminalResult = board.terminalTest();
     if(isTerminalResult == botPlayingSymbol)
     {
         return 120-depth;
     }
-    else if(isTerminalResult == playerPlayingSymbol)
+    else if(isTerminalResult == opponentPlayingSymbol)
     {
         return depth - 120;
     }
@@ -160,11 +153,11 @@ int Bot::maxValue(const Board& board, int alpha, int beta, int depth)
         {
             boardAfterPick=board;
             boardAfterPick.pickCell(*it);
-            for(auto putBack = boardAfterPick.validCellsToPutBack.begin();
-                    putBack != boardAfterPick.validCellsToPutBack.end(); ++putBack)
+            for(auto putBackCell = boardAfterPick.validCellsToPutBack.begin();
+                    putBackCell != boardAfterPick.validCellsToPutBack.end(); ++putBackCell)
             {
                 boardAfterPut = boardAfterPick;
-                boardAfterPut.putPieceBack(botPlayingSymbol, *putBack);
+                boardAfterPut.putPieceBack(botPlayingSymbol, *putBackCell);
 
                 v=std::max(v, minValue(boardAfterPut, alpha, beta, depth+1));
                 if(v >= beta) return v;

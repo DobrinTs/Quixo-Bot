@@ -3,6 +3,7 @@
 
 #include "Board.h"
 #include "Bot.h"
+#include "BotType1.h"
 
 using namespace std;
 
@@ -32,7 +33,7 @@ void playQuixo()
         cout<<"--------------------------------"<<endl;
         cout<<"BOT PLAYS!"<<endl;
         cout<<"--------------------------------"<<endl;
-        Bot ai(playingBoard, 'O', 'X');
+        BotType1 ai(playingBoard, 'O', 'X');
         playingBoard = ai.minMaxDecision();
         playingBoard.print();
 

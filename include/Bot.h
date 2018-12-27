@@ -15,18 +15,16 @@ class Bot
         Board minMaxDecision();
 
     protected:
-
-    private:
         static int MIN_INF;
         static int PLUS_INF;
         static int MAXIMUM_DEPTH;
-        static std::vector<int> cellWorth;
 
         Board startingBoard;
         char botPlayingSymbol;
         char opponentPlayingSymbol;
 
-        int eval(const Board& board);
+        virtual int eval(const Board& board) = 0;
+    private:
 };
 
 #endif // BOT_H

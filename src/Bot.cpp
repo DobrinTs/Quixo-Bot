@@ -53,30 +53,6 @@ Board Bot::minMaxDecision()
 
     return boardAfterBotPlayed;
 }
-std::vector<int> Bot::cellWorth = {2, 3, 3, 3, 2,
-                                   3, 1, 1, 1, 3,
-                                   3, 1, 1, 1, 3,
-                                   3, 1, 1, 1, 3,
-                                   2, 3, 3, 3, 2
-                                  };
-
-int Bot::eval(const Board& board)
-{
-    int boardGoodness = 0;
-    for(int i=0; i<25; i++)
-    {
-        char cellValue = board.cellValue(i);
-        if(cellValue == botPlayingSymbol)
-        {
-            boardGoodness += cellWorth[i];
-        }
-        else if(cellValue == opponentPlayingSymbol)
-        {
-            boardGoodness -= cellWorth[i];
-        }
-    }
-    return boardGoodness;
-}
 
 int Bot::MAXIMUM_DEPTH = 5;
 

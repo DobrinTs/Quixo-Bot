@@ -144,3 +144,7 @@ int Bot::maxValue(const Board& board, int alpha, int beta, int depth)
 
     return v;
 }
+
+Board Bot::playMove() {
+    return minMaxDecision();
+}

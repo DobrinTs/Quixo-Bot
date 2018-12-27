@@ -3,8 +3,9 @@
 #include <vector>
 
 #include "Board.h"
+#include "Player.h"
 
-class Bot
+class Bot : public Player
 {
     public:
         Bot(Board startingBoard, char botPlayingSymbol, char opponentPlayingSymbol);
@@ -13,6 +14,7 @@ class Bot
         int maxValue(const Board& board, int alpha, int beta, int depth);
         int minValue(const Board& board, int alpha, int beta, int depth);
         Board minMaxDecision();
+        Board playMove();
 
     protected:
         static int MIN_INF;

@@ -35,7 +35,7 @@ void playQuixo()
         cout<<"BOT PLAYS!"<<endl;
         cout<<"--------------------------------"<<endl;
         BotType2 ai(playingBoard, 'O', 'X');
-        playingBoard = ai.minMaxDecision();
+        playingBoard = ai.playMove();
         playingBoard.print();
 
     }

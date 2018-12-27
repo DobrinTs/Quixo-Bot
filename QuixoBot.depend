@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1545904109 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/main.cpp
+1545908217 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/main.cpp
 	<iostream>
 	<vector>
 	"Board.h"
@@ -7,7 +7,7 @@
 	"BotType1.h"
 	"BotType2.h"
 
-1545906607 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Board.h
+1545908366 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Board.h
 	<vector>
 	<set>
 
@@ -16,14 +16,15 @@
 	<vector>
 	<iostream>
 
-1545903176 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Bot.cpp
+1545908198 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Bot.cpp
 	<algorithm>
 	<iostream>
 	"Bot.h"
 
-1545903213 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Bot.h
+1545908143 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Bot.h
 	<vector>
 	"Board.h"
+	"Player.h"
 
 1545903131 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/BotType1.h
 	<Bot.h>
@@ -31,9 +32,15 @@
 1545903183 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotType1.cpp
 	"BotType1.h"
 
-1545905918 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotType2.cpp
+1545907680 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotType2.cpp
 	"BotType2.h"
 
 1545907202 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/BotType2.h
 	<Bot.h>
+
+1545908157 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/Player.h
+	"Board.h"
+
+1545908016 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Player.cpp
+	"Player.h"
 

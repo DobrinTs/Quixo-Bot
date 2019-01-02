@@ -35,16 +35,20 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Board.h" />
+		<Unit filename="include/BotHillClimb.h" />
 		<Unit filename="include/BotMinMax.h" />
 		<Unit filename="include/BotType1.h" />
 		<Unit filename="include/BotType2.h" />
+		<Unit filename="include/BotType3.h" />
 		<Unit filename="include/Human.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Board.cpp" />
+		<Unit filename="src/BotHillClimb.cpp" />
 		<Unit filename="src/BotMinMax.cpp" />
 		<Unit filename="src/BotType1.cpp" />
 		<Unit filename="src/BotType2.cpp" />
+		<Unit filename="src/BotType3.cpp" />
 		<Unit filename="src/Human.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Extensions>

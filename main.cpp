@@ -38,17 +38,23 @@ void playQuixo()
 
         Player* currentPlayer;
 
-        switch(playerType) {
-            case 0: currentPlayer = new Human(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
-                    break;
-            case 1: currentPlayer = new BotType1(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
-                    break;
-            case 2: currentPlayer = new BotType2(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
-                    break;
-            case 3: currentPlayer = new BotType3(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
-                    break;
-            case 4: currentPlayer = new BotHillClimb(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
-                    break;
+        switch(playerType)
+        {
+        case 0:
+            currentPlayer = new Human(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
+            break;
+        case 1:
+            currentPlayer = new BotType1(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
+            break;
+        case 2:
+            currentPlayer = new BotType2(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
+            break;
+        case 3:
+            currentPlayer = new BotType3(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
+            break;
+        case 4:
+            currentPlayer = new BotHillClimb(playingBoard, currentPlayerSymbol, otherPlayerSymbol);
+            break;
         }
 
         playingBoard = currentPlayer->playMove();
@@ -59,11 +65,14 @@ void playQuixo()
 
     if(currentStatus == 'X')
     {
-        cout<<"X WINS!!";
+        cout<<"X WINS!!"<<endl;
+        cout<<"Played for "<<turn<<" turns.";
     }
     else if(currentStatus == 'O')
     {
-        cout<<"O WINS!!";
+        cout<<"O WINS!!"<<endl;
+        cout<<"Played for "<<turn<<" turns.";
+
     }
 }
 

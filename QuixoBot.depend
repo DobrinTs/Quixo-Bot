@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1545917986 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/main.cpp
+1545983180 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/main.cpp
 	<iostream>
 	<vector>
 	"Board.h"
@@ -14,7 +14,7 @@
 	<vector>
 	<set>
 
-1545910609 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Board.cpp
+1548240965 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/Board.cpp
 	<vector>
 	<iostream>
 	<algorithm>
@@ -35,7 +35,7 @@
 1545914538 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotType1.cpp
 	"BotType1.h"
 
-1545914541 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotType2.cpp
+1548243522 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotType2.cpp
 	"BotType2.h"
 
 1545915960 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/BotType2.h
@@ -59,11 +59,11 @@
 	"Board.h"
 	"Player.h"
 
-1545918309 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotMinMax.cpp
+1548244346 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotMinMax.cpp
 	<algorithm>
 	"BotMinMax.h"
 
-1545917754 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotHillClimb.cpp
+1548244119 source:/home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/src/BotHillClimb.cpp
 	"BotHillClimb.h"
 
 1545917754 /home/dobri/Documents/FMI/4_year/ai/project/QuixoBot/include/BotHillClimb.h

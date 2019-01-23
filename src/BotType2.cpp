@@ -50,7 +50,7 @@ int BotType2::eval(const Board& board)
 
     for(int i=0; i<5; i++)
     {
-        int rowStart = i+5;
+        int rowStart = i*5;
         int rowStep = 1;
         int colStart = i;
         int colStep = 5;

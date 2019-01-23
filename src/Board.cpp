@@ -71,13 +71,13 @@ void Board::putPieceBack(char pieceSymbol, int putBackCell)
 {
     int step;
 
-    if(putBackCell%5 == pickedCell%5)
+    if(putBackCell%5 == pickedCell%5) //same column
     {
         step = putBackCell > pickedCell ? 5 : -5;
     }
     else
     {
-        step = putBackCell > pickedCell ? 1 : -1;
+        step = putBackCell > pickedCell ? 1 : -1; //same row
     }
 
     for(int i = pickedCell; i != putBackCell; i+=step)
@@ -103,10 +103,10 @@ bool Board::checkSequence(int startCell, int endCell, int step) const {
 
 char Board::terminalTest() const  //returns N if not terminal, symbol of winer if terminal
 {
-    if(checkSequence(0, 24, 6)) {
+    if(checkSequence(0, 24, 6)) { //main diagonal
         return board[0];
     }
-    if(checkSequence(4, 20, 4)) {
+    if(checkSequence(4, 20, 4)) { //secondary diagonal
         return board[4];
     }
 

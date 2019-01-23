@@ -54,13 +54,19 @@ std::vector<int> BotHillClimb::cellWorth = {2, 3, 3, 3, 2,
                                             3, 1, 1, 1, 3,
                                             3, 1, 1, 1, 3,
                                             2, 3, 3, 3, 2
-                                            };
+                                           };
 
 int BotHillClimb::eval(const Board& board)
 {
-    if(board.terminalTest() == botPlayingSymbol) {
+    if(board.terminalTest() == botPlayingSymbol)
+    {
         return 1000;
     }
+    if(board.terminalTest() == opponentPlayingSymbol)
+    {
+        return -1000;
+    }
+
     int boardGoodness = 0;
     for(int i=0; i<25; i++)
     {
